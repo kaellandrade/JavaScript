@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aprendendo DOM</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body>
+    <div id="area">
+        Interaja...
+    </div>
+
+    <script>
+
+        var area = window.document.getElementById('area')
+        area.addEventListener('click', clicar)
+        area.addEventListener('mouseenter', entrar)
+        area.addEventListener('mouseout', clicar)
+
+        function clicar() {
+            area.innerText = "Clicou!"
+            area.style.background = 'yellow'
+        }
+        function entrar() {
+            area.innerText = "Entrou!"
+            area.style.background = "red"
+        }
+
+        function sair(){
+            area.innerText = "Saiu!"
+            area.style.background = 'blue'
+        }
+    </script>
+</body>
+</html>
