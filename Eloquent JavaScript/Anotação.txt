@@ -1,0 +1,62 @@
+Chapter 1 -VALORES, TIPOS E OPERADORES
+--------------------------------------
+"Abaixo da parte superficial da máquina, o programa se movimenta. Sem esforço, ele se expande e se
+contrai. Com grande harmonia, os elétrons se espalham e se reagrupam. As formas no monitor são como
+ondulações na água. A essência permanece invisível por baixo.
+" - Master Yuan-ma
+
+Existem seis tipos básicos de valores no JavaScript:
+números, strings, Booleanos, objetos, funções e valores indefinidos.
+
+** NÚMEROS ESPECIAIS **
+Existem três valores especiais no JavaScript que são considerados números, mas não se comportam como
+números normais.
+
+São eles:
+    Infinity
+    -Infinity
+    NaN "not a number"(não é um número) 0/0 Infinity - Infinity
+
+** OPERADORES UNÁRIOS **
+    Nem todos os operadores são símbolos, sendo que alguns são escritos como palavras. Um exemplo é o operador
+    typeof,que produz um valor do tipo string contendo o nome do tipo do valor que você está verificando.
+    ! (not)
+** Operador Ternário ** 
+true ? 1 : 2 (Se for verdade faça 1, caso contrário faça 2)
+
+** VALORES INDEFINIDOS **
+    Existem dois valores especiais, 'null' e 'undefined', que são usados para indicar a ausência de um valor com
+    significado. Eles são valores por si sós, mas não carregam nenhum tipo de informação.
+
+    A diferença de significado entre 'undefined' e 'null' é um acidente que foi criado no design do JavaScript,
+    e não faz muita diferença na maioria das vezes. Nos casos em que você deve realmente se preocupar
+    com esses valores, recomendo tratá-los como valores idênticos (vamos falar mais sobre isso em breve).
+
+** CONVERSÃO AUTOMÁTICA DE TIPO **
+    JavaScript tenta ffazer o seu melhor para aceitar quase todos os programas que
+    você fornece, inclusice aqueles que fazem coisas bem estranhas. Isso pode ser demonstrado como as seguintes
+    expressões:
+
+    console.log(8 * null)
+    // -> 0
+
+    console.log('5' - 1)
+    // -> 4
+
+    console.log('5' + 1)
+    // -> '51'
+    
+    console.log(false == 0)
+    // -> true
+
+    Conclui-se que, quando um operador é aplicado a um tipo de valor “errado”, o JavaScript converterá,
+    de forma silenciosa, esse
+    valor para o tipo que ele desejar, usando uma série de regras que muitas vezes não é o que você deseja ou
+    espera. (Chama-se corção de tipo, ou conversão de tipo)
+
+RESUMO
+aritmética (+, - , *, /, **, %)
+strings(+)
+comparação(==, !=, !==, ===, >, <, >= ,<= )
+lógica (&&, ||)
+unários(- para negar um número, ! para negar uma lógica, typeof para encontrar o tipo do valor)
