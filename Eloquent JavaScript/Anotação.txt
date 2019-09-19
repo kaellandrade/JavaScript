@@ -60,3 +60,29 @@ strings(+)
 comparação(==, !=, !==, ===, >, <, >= ,<= )
 lógica (&&, ||)
 unários(- para negar um número, ! para negar uma lógica, typeof para encontrar o tipo do valor)
+
+Chapter 2 - ESTRUTURA DO PROGRAMA
+
+** Funções **
+    Uma função é um pedaço de programa envolvido por um valor.
+    Este valor pode ser aplicado a fim de executar o programa envolvido.
+
+    alert("Good morning!") // Uma função com apenas um argumento.
+
+    RETORNANDO VALORES
+    Mostrar uma caixa de diálogo ou escrever texto na tela é um efeito colateral. Muitas funções são úteis
+    por causa dos efeitos que elas produzem.
+
+    LOOPS WHILE E DO
+    
+        number = 0;
+        // Imprimindo números pares
+        while (number <= 12) {
+            console.log(number);
+            number += 2;
+        }
+
+    LOOPS FOR
+
+        for (var number = 0; number <= 12; number = number + 2)
+            console.log(number)
