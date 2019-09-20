@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <title>Nacionalidade</title>
+</head>
+
+<body>
+    <div id="nacionalidade">
+        <h2>NACIO 0.01</h2>
+        <input type="text" id="input-pais" placeholder="Digite seu pais...">
+        <input type="button" id="button-verificar" value="Verificar" onclick="check()">
+        <div id="resposta"></div>
+    </div>
+
+    <script>
+        function check() {
+            var pais = window.document.getElementById("input-pais")
+            var res = window.document.getElementById("resposta")
+            nacionalidade = pais.value
+            
+            if(nacionalidade.toLowerCase() == "brasil"){
+                res.innerHTML = "Você é brasileiro!"
+            } else{
+                res.innerHTML = "Você estrangeiro!"
+            }
+        }
+    </script>
+</body>
+</html>
