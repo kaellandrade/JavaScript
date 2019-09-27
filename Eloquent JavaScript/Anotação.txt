@@ -88,3 +88,4 @@ Chapter 2 - ESTRUTURA DO PROGRAMA
             console.log(number)
 **RECURSÃO**
     É perfeitamente a ceitável uma função invocar a si mesma, contanto que se tenha cuisado para não sobrecarregar a pilha de chamadas.
+    teste
