@@ -10,3 +10,4 @@ function menor(x, y) {
     }
 }
 console.log(menor(0, -10))
+
