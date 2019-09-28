@@ -29,15 +29,10 @@ function isEven(n) {
 
 //Função que conta quantos char há na string.
 function countChar(str, char) {
-    var index = 0;
     var cont = 0;
-    while (index <= str.length) {
+    for (let index = 0; index <= str.length; index++) {
         if (str.charAt(index) == char) {
-            cont ++;
-            index ++;
-
-        } else {
-            index ++;            
+            cont ++;            
         }
     }
     return cont;
