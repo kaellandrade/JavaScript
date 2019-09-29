@@ -88,4 +88,11 @@ Chapter 2 - ESTRUTURA DO PROGRAMA
             console.log(number)
 **RECURSÃO**
     É perfeitamente a ceitável uma função invocar a si mesma, contanto que se tenha cuisado para não sobrecarregar a pilha de chamadas.
-    
+
+**ESTRUTURA DE DADOS: OBJETOS E ARRAY**
+    Números, Booleanos e string são os tijolos usados para construir as estruturas de dados.
+    Entretanto, você não consegue fazer uma casa com um único tijolo. Objetos nos permitem agrupar valores (incluindo outros objetos)
+    e, consequentemente, construir estrutras mais complesxas.
+
+    OBJETOS--
+        Uma maneira de criar um objeto é usando a notação com chaves.
