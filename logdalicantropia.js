@@ -1,3 +1,5 @@
+// O log da licantropia
+
 var registro = []; // var que irá conter todos os meus objetos registrados
 
 // Função que add valores
