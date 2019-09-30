@@ -1,0 +1,32 @@
+body{
+    background: rgba(121, 13, 221, 0.548);
+    font: normal 15pt Arial;
+}
+
+header{
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgb(25, 2, 32);
+}
+
+section{
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.733);  /* Sobra */
+
+}
+
+footer{
+    color: white;
+    text-align: center;
+    font-style: italic;
+    text-shadow: 2px 2px 5px rgb(8, 8, 8);
+}
+
+div{
+    text-align: center;
+    padding: 8px;
+}
