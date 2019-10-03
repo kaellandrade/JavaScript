@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Meu contador</title>
+</head>
+
+<body> 
+    <header>
+        <h1> Vamos contar ?</h1>
+    </header>
+
+    <section>
+        <div>
+            <p>
+                Início: <br> 
+                <input type="number" name="txtinicio" id="txtinicio">
+            </p>
+
+            <p>
+                Fim: <br>
+                <input type="number" name="txtfim" id="txtfim">
+            </p>
+
+            <p>
+                Passo: <br>
+                <input type="number" name="txtpasso" id="txtpasso">
+            </p>
+
+            <p>
+                <input class="botao-verificar" type="button" value="Start!" onclick="contar()">
+            </p>
+        </div>
+
+        <div id="res">
+            Preparando para contar...
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; Kaell</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
