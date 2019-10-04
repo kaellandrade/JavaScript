@@ -96,3 +96,14 @@ Chapter 2 - ESTRUTURA DO PROGRAMA
 
     OBJETOS--
         Uma maneira de criar um objeto é usando a notação com chaves.
+
+    MÉTODOS DE ARRAY
+        indexOf(x) // Retorna o índice do primeiro elemento indicado
+
+        lastIndexOf(y) // Retorna o índice do último elemento indicado 
+        -----------------------------------
+        slice(x,y)
+        console.log([0,1,2,3,4].slice(2,4))
+        // [2,3]
+        -----------------------------------
+        str.trim() // remove espaços em branco no início da string
