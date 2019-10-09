@@ -3,22 +3,24 @@ var listaValores = []
 var res = document.getElementById('resposta')
 // Função que adiciona números ao array
 function addValue() {
-    let n = document.getElementById('valor')
+    let n = document.querySelector('input#valor')
     let sel = document.getElementById('sel')
     let valor = Number(n.value)
 
     res.innerText = '' // Limpa o campo 
     if (valor > 100 || valor < 1) {
         alert("Valor inválido!")
+        n.value = '' // Limpado campo
     } else if (listaValores.indexOf(valor) != -1) { // Se o valor não estiver na lista será retonrado -1
         alert(`${valor} já está na lista!`) 
+        n.value = '' // Limpado campo
         
     } else{
         listaValores.push(valor)
         let option = document.createElement('option')
         option.text =  `Valor ${valor} adicionado!`
         sel.add(option)
-        n.value = ''  // Quando adicionado o campo será limpado 
+        n.value = ''  // Limpado campo
     }
 }
 
