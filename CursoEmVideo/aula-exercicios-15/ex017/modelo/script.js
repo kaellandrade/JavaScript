@@ -1,4 +1,4 @@
-var listaValores = []
+var listaValores = [] 
 
 var res = document.getElementById('resposta')
 // Função que adiciona números ao array
@@ -17,7 +17,8 @@ function addValue() {
         listaValores.push(valor)
         let option = document.createElement('option')
         option.text =  `Valor ${valor} adicionado!`
-        sel.add(option)   
+        sel.add(option)
+        n.value = ''  // Quando adicionado o campo será limpado 
     }
 }
 
@@ -31,7 +32,7 @@ function finalizar() {
         A média dos valores digitados é: ${media(listaValores)}`
         res.innerText = descricao
     } else {
-        
+        alert("Adicione valores antes de finalizar!")
     }
     
 }
