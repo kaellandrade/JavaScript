@@ -19,32 +19,45 @@ section{
 
 }
 
-#txtano{
-    background-color: #a836f4;
+#sel{
+    text-align: left;
+    width: 150px;
+}
+
+#valor{
+    width: 90px;
+    background-color: #050505;
     border: none;
     color: white;
     padding: 5px 5px;
-    text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 13px;
     cursor: text;
     border-radius: 5px;
 }
 
-#botao-verificar{
-    background-color: #a836f4;
+/* Botões */
+#add{
+
+    background-color: #e07903;
     border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    color: rgb(0, 0, 0);
+    padding: 8px 8px;
+    font-size: 12px;
+    font-weight: bold;
     cursor: pointer;
-    border-radius: 40px;
+    border-radius: 30px;
 }
 
+#fim{
+    background-color: rgb(77, 74, 238);
+    border: none;
+    padding: 8px 8px;
+    cursor: pointer;
+    border-radius: 30px;
+
+}
 
 
 footer{
@@ -55,6 +68,5 @@ footer{
 }
 
 div{
-    text-align: center;
     padding: 8px;
 }

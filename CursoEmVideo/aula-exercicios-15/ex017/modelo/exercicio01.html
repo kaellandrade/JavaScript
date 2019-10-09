@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Nalisador de Números</title>
+</head>
+
+<body> 
+    <header>
+        <h1>Analisador de números</h1>
+    </header>
+
+    <section>
+        <div>
+            <p>
+                Número (entre 1 a 100): 
+                <input type="number" name="valor" id="valor" placeholder="Digite aqui...">
+                <input id="add" type="button" value="Adicionar" onclick="addValue()">
+            </p>
+
+            <p>
+                <select name="sel" id="sel" multiple>
+                  <!-- Aqui será criado as option pelo JS -->
+                </select>
+                <br> 
+                <input id="fim" type="button" value="Finalizar" onclick="finalizar()">
+                <p id="resposta">
+                    <!-- Aqui será mostrado a resposta -->
+                </p>
+            </p>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; Kaell</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

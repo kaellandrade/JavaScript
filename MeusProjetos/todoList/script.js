@@ -15,10 +15,3 @@ function urgentlyRememberTo(task) {
     todoList.unshift(task)   
 }
 
-rememberTo("Cortar o cabelo")
-rememberTo("Estudar Mat")
-rememberTo("Passear com cão")
-urgentlyRememberTo("Pagar internet")
-console.log(todoList)
-whatisNext()
-console.log(todoList.indexOf(1))
