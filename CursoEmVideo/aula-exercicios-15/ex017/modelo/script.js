@@ -6,32 +6,31 @@ function addValue() {
     let n = document.querySelector('input#valor')
     let sel = document.getElementById('sel')
     let valor = Number(n.value)
-
-    res.innerText = '' // Limpa o campo 
+    res.innerHTML = ''
     if (valor > 100 || valor < 1) {
         alert("Valor inválido!")
-        n.value = '' // Limpado campo
     } else if (listaValores.indexOf(valor) != -1) { // Se o valor não estiver na lista será retonrado -1
         alert(`${valor} já está na lista!`) 
-        n.value = '' // Limpado campo
+        
         
     } else{
         listaValores.push(valor)
-        let option = document.createElement('option')
-        option.text =  `Valor ${valor} adicionado!`
-        sel.add(option)
-        n.value = ''  // Limpado campo
+        let item = document.createElement('option')
+        item.text =  `Valor ${valor} adicionado!`
+        sel.appendChild(item)
     }
+    n.value = '' // Limpado campo
+    n.focus() // Deixa o foco em n 
 }
 
 function finalizar() {
     if (listaValores.length != 0) {
         let descricao = `
-        Temos ${listaValores.length} cadastrados\n
-        O maior valor informado foi: ${Math.max.apply(null, listaValores)}\n
-        O menor valor informado foi: ${Math.min.apply(null, listaValores)}\n
-        Somando todos os valores temos: ${soma(listaValores)}\n
-        A média dos valores digitados é: ${media(listaValores)}`
+        Total de valores cadastrados: ${listaValores.length}\n
+        O maior valor informado: ${Math.max.apply(null, listaValores)}\n
+        O menor valor informado: ${Math.min.apply(null, listaValores)}\n
+        Soma de todos os valores: ${soma(listaValores)}\n
+        Média: ${media(listaValores)}`
         res.innerText = descricao
     } else {
         alert("Adicione valores antes de finalizar!")
