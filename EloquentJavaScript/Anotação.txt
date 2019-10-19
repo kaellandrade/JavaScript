@@ -107,3 +107,6 @@ Chapter 2 - ESTRUTURA DO PROGRAMA
         // [2,3]
         -----------------------------------
         str.trim() // remove espaços em branco no início da string
+
+**Funções de ordem superior**
+    

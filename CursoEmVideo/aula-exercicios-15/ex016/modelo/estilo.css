@@ -1,3 +1,19 @@
+@font-face{
+    font-family: Baby;
+    src: url("Baby-blocks.woff");
+}
+
+
+@font-face {
+    font-family: Alaskan;
+    src: url("AlaskanNights.woff");
+}
+h1{
+    font-size: 3em;
+    font-family: Alaskan;
+    color: #ff9100;
+}
+
 body{
     background: rgba(37, 3, 92, 0.692);
     font: normal 15pt Arial;
@@ -19,6 +35,11 @@ section{
 
 }
 
+#start{
+    font-size: 1em;
+    font-family: Alaskan;
+    color: #000000;
+}
 
 #txtinicio, #txtfim, #txtpasso{
     width: 90px;
