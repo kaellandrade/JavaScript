@@ -1,0 +1,72 @@
+body{
+    background: rgba(37, 3, 92, 0.692);
+    font: normal 15pt Arial;
+}
+
+header{
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgb(25, 2, 32);
+}
+
+section{
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.733);  /* Sobra */
+
+}
+
+#sel{
+    text-align: left;
+    width: 150px;
+}
+
+#nome{
+    width: 90px;
+    background-color: #050505;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    cursor: text;
+    border-radius: 5px;
+}
+
+/* Botões */
+#add{
+
+    background-color: #e07903;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 8px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+#fim{
+    background-color: rgb(77, 74, 238);
+    border: none;
+    padding: 8px 8px;
+    cursor: pointer;
+    border-radius: 30px;
+
+}
+
+
+footer{
+    color: white;
+    text-align: center;
+    font-style: italic;
+    text-shadow: 2px 2px 5px rgb(8, 8, 8);
+}
+
+div{
+    padding: 8px;
+}

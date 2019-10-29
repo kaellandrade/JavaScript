@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Amigo secreto</title>
+</head>
+
+<body> 
+    <header>
+        <h1>Amigo secreto</h1>
+    </header>
+
+    <section>
+        <div>
+            <p>
+                Cadastre amigos: 
+                <input type="text" name="text" id="nome" placeholder="Nome...">
+                <input id="add" type="button" value="Adicionar" onclick="addValue()">
+                <input id="limpar" type="button" value="Limpar" onclick="limpar()">
+
+            </p>
+
+            <p>
+                <select name="sel" id="sel" multiple>
+                  <!-- Aqui será criado as option pelo JS -->
+                </select>
+                <br> 
+                <input id="fim" type="button" value="Finalizar" onclick="finalizar()">
+                <p id="resposta">
+                    <!-- Aqui será mostrado a resposta -->
+                </p>
+            </p>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; Kaell</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
