@@ -10,25 +10,27 @@
 
 <body> 
     <header>
-        <h1>Amigo secreto</h1>
+        <h1>AMIGO SECRETO</h1>
     </header>
 
     <section>
         <div>
-            <p>
-                Cadastre amigos: 
+            <p id="paragrafo1">
+                ADICIONE SEUS AMIGOS!<br/> 
+                <br/>
                 <input type="text" name="text" id="nome" placeholder="Nome...">
                 <input id="add" type="button" value="Adicionar" onclick="addValue()">
-                <input id="limpar" type="button" value="Limpar" onclick="limpar()">
 
             </p>
 
-            <p>
-                <select name="sel" id="sel" multiple>
-                  <!-- Aqui será criado as option pelo JS -->
-                </select>
+            <ul name="mylist" id="mylist">
+                    <!-- Aqui será criado as option pelo JS -->
+            </ul>
+
+            <p>            
                 <br> 
-                <input id="fim" type="button" value="Finalizar" onclick="finalizar()">
+                <input class="limpar" type="button" value="Apagar todos" onclick="limpar()">
+                <input class="sortear" type="button" value="Sortear" style="vertical-align: middle;" onclick="sortearAmigo()">
                 <p id="resposta">
                     <!-- Aqui será mostrado a resposta -->
                 </p>

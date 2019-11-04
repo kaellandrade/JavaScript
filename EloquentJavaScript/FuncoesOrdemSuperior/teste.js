@@ -73,6 +73,16 @@ var  overNinety = (ancestry.filter(function (person) {
     return person.died - person.born <= 30
 }))
 
-console.log(map(overNinety, function (person) {
-    return person.name
-}))
+// console.log(map(overNinety, function (person) {
+//     return person.name
+// }))
+
+var min = ancestry[0]
+for (let i = 1; i < ancestry.length; i++) {
+    const cur = ancestry[i];
+    if (cur.born < min.bor){
+        min = cur
+    }
+    
+}
+console.log(min)

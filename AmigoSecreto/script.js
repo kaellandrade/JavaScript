@@ -1,11 +1,26 @@
 var listaNomes = [] 
 
 var res = document.getElementById('resposta')
+var n = document.querySelector('input#nome')
+var sel = document.getElementById('mylist')
 
-// Função que adiciona números ao array
+// Função que adiciona nomes ao array
+function sortearAmigo() {
+    if(listaNomes.length > 0){
+        var amigo = random(listaNomes)
+        res.innerHTML = amigo.toUpperCase()
+        let item = sel.getElementsByTagName('li');
+        sel.removeChild(item[listaNomes.indexOf(amigo)]) // AQUI!
+        removepessoa(listaNomes, amigo);
+
+    } else{
+        alert("Adicione amigos primeiro!")
+    }
+    
+}
+
 function addValue() {
-    let n = document.querySelector('input#nome')
-    let sel = document.getElementById('sel')
+    
     let nome = n.value.trim().toLowerCase() // Deixa o nome em lower e sem espaço no início!
     res.innerHTML = ''
     if(nome.length == 0){
@@ -16,23 +31,13 @@ function addValue() {
         
     } else{
         listaNomes.push(nome)
-        let item = document.createElement('option')
-        item.text =  `${title(nome)}` 
-        sel.appendChild(item)
+        let node = document.createElement('li')
+        var textnode = document.createTextNode(`${title(nome)}`) 
+        node.appendChild(textnode)
+        document.getElementById("mylist").appendChild(node)
     }
     n.value = '' // Limpado campo
     n.focus() // Deixa o foco em n 
-}
-
-function finalizar() {
-    if (listaNomes.length != 0) {
-        let descricao = `
-        Total de nomes cadastrados: ${listaNomes.length}\n`
-        res.innerText = descricao
-    } else {
-        alert("Adicione pessoas antes de finalizar!")
-    }
-    
 }
 
 // limpa a lista
@@ -46,10 +51,23 @@ function limpar(){
     
 }
 
-// Funções auxiliares
-
 // Deixa a primeira letra maúscula Ex: Mikael
 function title(palavra) {
     name = palavra[0].toUpperCase() + palavra.slice(1).toLowerCase()
     return name
 }
+
+function random(array){
+    var item = array[Math.floor(Math.random() * array.length)]
+    return item
+}
+
+// Remove um lemento
+function removepessoa(array, name) {
+    var index = array.indexOf(name);
+    if (index > -1){
+        var name = array.splice(index, 1)
+    }
+    return name[0]
+}
+
