@@ -1,6 +1,6 @@
 # Praticando um pouco!
 
-Todos esses scripts são uma forma de consolidar os conhecimetos sobre
+Todos esses scripts são uma forma de consolidar os conhecimentos sobre
 a linguagem JavaScript.
 
 - Scripts referente aos cursos
