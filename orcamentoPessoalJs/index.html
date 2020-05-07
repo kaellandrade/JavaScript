@@ -108,41 +108,21 @@
       </div>
     </div>
 
-    <!-- Modal Erro -->
-    <div class="modal fade" id="erroGravacao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal -->
+    <div class="modal fade" id="modalRegistraDespesa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header text-danger">
-            <h5 class="modal-title" id="exampleModalLabel">Erro na gravação</h5>
+          <div id='bodyModal' class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"> <!--Mensagem titulo aqui--> </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            Existe campos obrigatórios que não foram preenchidos
+          <div id="mensagem" class="modal-body">
+            <!-- Mensagem aqui! -->
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Voltar e Corrigir</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal Sucesso -->
-    <div class="modal fade" id="sucessoGravacao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header text-success">
-            <h5 class="modal-title" id="exampleModalLabel">Registro inserido com sucesso</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Despesa cadastrada com sucesso!
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-success" data-dismiss="modal">Voltar</button>
+            <button id="btModal" type="button" class="" data-dismiss= "modal">Voltar</button>
           </div>
         </div>
       </div>

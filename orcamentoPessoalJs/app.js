@@ -59,12 +59,61 @@ function cadastrarDespesa(){
     valor.value
    )
 
-   
+   mensagem = new MensagemDialogo()
    if(despesa.validarDados()){
-    bd.gravar(despesa)
-    $('#sucessoGravacao').modal('show')
-
+        bd.gravar(despesa)    
+        mensagem.sucessoCadastro()
    }else{
-       $('#erroGravacao').modal('show')
+        mensagem.falhaCadastro()
    }
 }
+
+
+// Funções dialog
+
+class MensagemDialogo{
+    constructor(){
+        this.titleModal = document.getElementById('exampleModalLabel')
+        this.mensagem = document.getElementById('mensagem')
+        this.bodyModal = document.getElementById('bodyModal')
+        this.buttonModal = document.getElementById('btModal')
+    }
+    
+    sucessoCadastro(){
+        this.titleModal.innerHTML = 'Registro inserido com sucesso'
+        this.mensagem.innerHTML = 'Sua despesa foi cadastrada com sucesso!'
+
+        this.bodyModal.className = 'text-success modal-header'
+        this.buttonModal.className = 'btn btn-success'
+        $('#modalRegistraDespesa').modal('show')
+    }
+
+    falhaCadastro(){
+        this.titleModal.innerHTML = 'Falha na gravação'
+        this.mensagem.innerHTML = 'Por favor preencha todos os dados para efetuar o cadastro!'
+
+        this.bodyModal.className = 'text-danger modal-header'
+        this.buttonModal.className = 'btn btn-danger'
+        $('#modalRegistraDespesa').modal('show')
+    }
+    
+}
+
+// function SucessosCadastro(){
+
+// }
+
+// function FalhaCadastro(){
+//     let titleModal = document.getElementById('exampleModalLabel')
+//     let mensagem = document.getElementById('mensagem')
+
+//     let bodyModal = document.getElementById('bodyModal')
+//     let buttonModal = document.getElementById('btModal')
+
+//     titleModal.innerHTML = 'Falha na gravação'
+//     mensagem.innerHTML = 'Por favor preencha todos os dados para efetuar o cadastro!'
+
+//     bodyModal.className = 'text-danger modal-header'
+//     buttonModal.className = 'btn btn-danger'
+//     $('#modalRegistraDespesa').modal('show')
+// }
