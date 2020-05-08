@@ -124,6 +124,5 @@ class MensagemDialogo{
 function carregaListaDespesa(){
     let despesas = Array()
     despesas = bd.recuperarTodosResgistro()
-
     console.log(despesas)
 }
