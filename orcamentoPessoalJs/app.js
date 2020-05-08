@@ -37,6 +37,25 @@ class Bd{
 
         localStorage.setItem('id', id)
     }
+
+    recuperarTodosResgistro(){
+        // array de despesas
+        let despesas = Array()
+        
+        let id = localStorage.getItem('id')
+        for(let i = 1; i <= id; i++){ // recupera todas as despesas cadastradas em localStorege
+            //Recupera despesa
+            let despesa = JSON.parse(localStorage.getItem(String(i)))
+
+            //trantando índices removidos
+            if(despesa === null){
+                continue
+            }
+
+            despesas.push(despesa)
+        }
+        return despesas
+    }
 }
 
 let bd = new Bd()
@@ -69,7 +88,7 @@ function cadastrarDespesa(){
 }
 
 
-// Funções dialog
+// Class dialog
 
 class MensagemDialogo{
     constructor(){
@@ -82,7 +101,8 @@ class MensagemDialogo{
     sucessoCadastro(){
         this.titleModal.innerHTML = 'Registro inserido com sucesso'
         this.mensagem.innerHTML = 'Sua despesa foi cadastrada com sucesso!'
-
+        this.buttonModal.innerHTML =  'Voltar'
+        
         this.bodyModal.className = 'text-success modal-header'
         this.buttonModal.className = 'btn btn-success'
         $('#modalRegistraDespesa').modal('show')
@@ -91,6 +111,8 @@ class MensagemDialogo{
     falhaCadastro(){
         this.titleModal.innerHTML = 'Falha na gravação'
         this.mensagem.innerHTML = 'Por favor preencha todos os dados para efetuar o cadastro!'
+        this.buttonModal.innerHTML =  'Voltar e corrigir'
+
 
         this.bodyModal.className = 'text-danger modal-header'
         this.buttonModal.className = 'btn btn-danger'
@@ -99,21 +121,9 @@ class MensagemDialogo{
     
 }
 
-// function SucessosCadastro(){
+function carregaListaDespesa(){
+    let despesas = Array()
+    despesas = bd.recuperarTodosResgistro()
 
-// }
-
-// function FalhaCadastro(){
-//     let titleModal = document.getElementById('exampleModalLabel')
-//     let mensagem = document.getElementById('mensagem')
-
-//     let bodyModal = document.getElementById('bodyModal')
-//     let buttonModal = document.getElementById('btModal')
-
-//     titleModal.innerHTML = 'Falha na gravação'
-//     mensagem.innerHTML = 'Por favor preencha todos os dados para efetuar o cadastro!'
-
-//     bodyModal.className = 'text-danger modal-header'
-//     buttonModal.className = 'btn btn-danger'
-//     $('#modalRegistraDespesa').modal('show')
-// }
+    console.log(despesas)
+}
