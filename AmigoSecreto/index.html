@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS e FontAwesome-->
+    <script src="https://kit.fontawesome.com/d393abca71.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="estilo.css">
     <title>Amigo secreto</title>
@@ -24,11 +25,12 @@
 
             <div class="col-md-6 mb-3">
                 <input class="input-group" id="nome" placeholder="Adicione seus amigos..." autofocus>
-                <div class="btn-group d-flex">
-                    <button class="btn btn-success" id="add">Adicionar</button>
-                    <button class="btn btn-danger" id="apagar">Apagar</button>
-                    <button class="btn btn-info" id="sortear">Sortear</button>
+                <div class="btn-group d-flex mb-3">
+                    <button class="btn btn-success" id="add"><i class="fas fa-user-plus"></i> Adicionar</button>
+                    <button class="btn btn-danger" id="apagar" disabled><i class="fas fa-user-times"></i> Apagar</button>
+                    <button class="btn btn-info" id="sortear" disabled><i class="fas fa-random"></i> Sortear</button>
                 </div>   
+                <div id='alerta' class="d-none"></div> <!--Alerta nomes inválidos-->
                 <div class="jumbotron mt-3">
                     <h1>
                        Total: 
@@ -38,7 +40,6 @@
             </div>
         </div>
 
-        <div id='alerta' class="d-none"></div> <!--Alerta nomes inválidos-->
 
         <div class="row mt-5">
             <div class="col-12">
@@ -47,11 +48,12 @@
                            <tr>
                                <th scope="col">#</th>
                                 <th scope="col">Nome</th>
+                                <!-- <th scope="col">Meu amigo</th> !Será mostrado depois do sorteio-->
                            </tr>
 
                        </thead>
 
-                       <tbody id='tabale-nomes'>
+                       <tbody id='tabala-nomes'>
                            
                        </tbody>
                    </table>

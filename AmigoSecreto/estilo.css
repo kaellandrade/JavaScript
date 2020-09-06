@@ -11,7 +11,17 @@
     font-size: 1.7em;
     padding: 10px;
     color: #ffffff;
+}
 
+.btn-info,
+.btn-danger{
+    transition: 0.7s ease-in-out !important;
+}
+
+.btn-info:disabled,
+.btn-danger:disabled{
+    background: #ccc !important;
+    border: #ccc !important;
 }
 .jumbotron{
     text-align: center;

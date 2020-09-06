@@ -1,14 +1,39 @@
 let inputNome = document.querySelector('#nome');
 let btnAdd = document.querySelector('#add');
-let btnApagarTosos = document.querySelector('#apagar');
+let btnApagarTodos = document.querySelector('#apagar');
 let btnSortear = document.querySelector('#sortear');
 let alerta = document.querySelector('#alerta');
-let tabela = document.querySelector('#tabale-nomes');
+let tabela = document.querySelector('#tabala-nomes');
+let contagem = document.querySelector('#contagem');
 
 let todosOsAmigos = []; // array onde será armazenado todos os amigos cadastrados;
 
+// Remove todos os dados da tabela e o array também
+btnApagarTodos.addEventListener('click', ()=>{
+    if(todosOsAmigos.length > 0){
+       let resposta =  confirm('Apagar todos amigos cadastrados ?');
+       if(resposta == true){
+            todosOsAmigos = [];
+            contagem.innerHTML = 0;
+            tabela.innerHTML = '';
+            alerta.className = 'd-none';  //remove possiveis avisos
+            btnSortear.disabled = true; // desabilita o botão sorteio;
+            btnApagarTodos.disabled = true; // desabilita o botão apagar;
+
+        //    console.log(todosOsAmigos);
+       }
+    }
+});
+
 // Adiciona amigos à tabela;
-btnAdd.addEventListener('click', ()=>{
+btnAdd.addEventListener('click', addAmigos);
+addEventListener('keydown', enterAdd);
+
+function capitalize(nome) { // Nome maiúsculo
+    return nome.charAt(0).toUpperCase() + nome.slice(1);
+}
+
+function addAmigos(){
     let valor = inputNome.value.trim().toLocaleLowerCase(); // Captura o nome do amigo no input
 
     inputNome.value = '';
@@ -27,7 +52,7 @@ btnAdd.addEventListener('click', ()=>{
         let tr = document.createElement('tr');
         let thId = document.createElement('th');
         let thNome = document.createElement('th');
-        document.querySelector('#contagem').innerHTML = todosOsAmigos.length; // atualiza contagem
+        contagem.innerHTML = todosOsAmigos.length; // atualiza contagem
 
         thId.scope = 'row';
         thId.innerHTML = todosOsAmigos.length;
@@ -37,16 +62,28 @@ btnAdd.addEventListener('click', ()=>{
         tr.appendChild(thNome);
         tabela.appendChild(tr);
 
-        // console.log(todosOsAmigos);
-        alerta.className = 'd-none';
+        console.log(todosOsAmigos);
+        if(todosOsAmigos.length != 0){ // habilita botão remover
+            btnApagarTodos.disabled = false;
+        }
+        if(todosOsAmigos.length >= 3){ // habilita botão sortear
+            btnSortear.disabled = false;
+        }
+        alerta.className = 'd-none';  //remove possiveis avisos
     }
-});
+}
 
-function capitalize(nome) { // Nome maiúsculo
-    return nome.charAt(0).toUpperCase() + nome.slice(1);
+// Controle da aplicação
+function enterAdd(e) {
+    if(e.keyCode == 13){ // enter para adicionar
+        addAmigos();
+    }else if(e.keyCode == 27 && document.activeElement == inputNome){ // Esc para limpar campo nome
+        inputNome.value = '';
+    }
  }
 
-// TODO: Verificar a tabela de amigos se há algum bug
+
+// TODO: Elaborar os sorteios;
 
 /*
 var listaNomes = [] 
