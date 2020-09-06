@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Amigo secreto</title>
+</head>
+
+<body> 
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand">Amigo Secreto</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row home-display">
+            <div class="col-md-6 mb-3">
+                <img class="img-fluid" src="icons8-gift.svg" alt="Presente">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <input class="input-group" id="nome" placeholder="Adicione seus amigos..." autofocus>
+                <div class="btn-group d-flex">
+                    <button class="btn btn-success" id="add">Adicionar</button>
+                    <button class="btn btn-danger" id="apagar">Apagar</button>
+                    <button class="btn btn-info" id="sortear">Sortear</button>
+                </div>   
+                <div class="jumbotron mt-3">
+                    <h1>
+                       Total: 
+                        <span id='contagem'>0</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        <div id='alerta' class="d-none"></div> <!--Alerta nomes inválidos-->
+
+        <div class="row mt-5">
+            <div class="col-12">
+                   <table class="table">
+                       <thead>
+                           <tr>
+                               <th scope="col">#</th>
+                                <th scope="col">Nome</th>
+                           </tr>
+
+                       </thead>
+
+                       <tbody id='tabale-nomes'>
+                           
+                       </tbody>
+                   </table>
+            </div>
+        </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,3 +1,54 @@
+let inputNome = document.querySelector('#nome');
+let btnAdd = document.querySelector('#add');
+let btnApagarTosos = document.querySelector('#apagar');
+let btnSortear = document.querySelector('#sortear');
+let alerta = document.querySelector('#alerta');
+let tabela = document.querySelector('#tabale-nomes');
+
+let todosOsAmigos = []; // array onde será armazenado todos os amigos cadastrados;
+
+// Adiciona amigos à tabela;
+btnAdd.addEventListener('click', ()=>{
+    let valor = inputNome.value.trim().toLocaleLowerCase(); // Captura o nome do amigo no input
+
+    inputNome.value = '';
+    inputNome.focus();
+    if(todosOsAmigos.includes(valor)){ // Esse nome já está no array
+        alerta.className = 'alert alert-warning';
+        alerta.innerHTML = `Ops! ${valor} já está na lista!`;
+
+    }else if (valor == '') { // verifica se o campo está vazio
+        alerta.className = 'alert alert-danger';
+        alerta.innerHTML = 'Nome inválido!';
+
+    }else{
+        todosOsAmigos.push(valor);
+        // criar os valoes para serem adcionados a tabela;
+        let tr = document.createElement('tr');
+        let thId = document.createElement('th');
+        let thNome = document.createElement('th');
+        document.querySelector('#contagem').innerHTML = todosOsAmigos.length; // atualiza contagem
+
+        thId.scope = 'row';
+        thId.innerHTML = todosOsAmigos.length;
+
+        thNome.innerHTML = capitalize(valor);
+        tr.appendChild(thId);
+        tr.appendChild(thNome);
+        tabela.appendChild(tr);
+
+        // console.log(todosOsAmigos);
+        alerta.className = 'd-none';
+    }
+});
+
+function capitalize(nome) { // Nome maiúsculo
+    return nome.charAt(0).toUpperCase() + nome.slice(1);
+ }
+
+// TODO: Verificar a tabela de amigos se há algum bug
+
+/*
 var listaNomes = [] 
 
 var res = document.getElementById('resposta')
@@ -70,4 +121,4 @@ function removepessoa(array, name) {
     }
     return name[0]
 }
-
+*/
