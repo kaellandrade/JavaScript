@@ -37,7 +37,7 @@ btnApagarTodos.addEventListener('click', ()=>{
 btnAdd.addEventListener('click', addAmigos);
 addEventListener('keydown', enterAdd);
 
-// TODO : Ajustar o sorteio apenas para 3 pessoas ou mais.
+// TODO : Ajustar o sorteio.
 btnSortear.addEventListener('click', ()=>{
     console.log('Sorteando...')
 })
