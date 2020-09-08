@@ -7,13 +7,21 @@ let tabela = document.querySelector('#tabala-nomes');
 let contagem = document.querySelector('#contagem');
 
 let todosOsAmigos = []; // array onde será armazenado todos os amigos cadastrados;
+let amigosJaSorteados = []; // armazena os amigos já sorteados
+let pares_amigos = []; // pares dos amigos formados
 
-// Remove todos os dados da tabela e o array também
+
+
+// !Remove todos os dados da tabela e o array também
 btnApagarTodos.addEventListener('click', ()=>{
     if(todosOsAmigos.length > 0){
        let resposta =  confirm('Apagar todos amigos cadastrados ?');
        if(resposta == true){
+            // Limpa os arrays
             todosOsAmigos = [];
+            amigosJaSorteados = [];
+            pares_amigos = [];
+
             contagem.innerHTML = 0;
             tabela.innerHTML = '';
             alerta.className = 'd-none';  //remove possiveis avisos
@@ -28,6 +36,15 @@ btnApagarTodos.addEventListener('click', ()=>{
 // Adiciona amigos à tabela;
 btnAdd.addEventListener('click', addAmigos);
 addEventListener('keydown', enterAdd);
+
+// TODO : Ajustar o sorteio apenas para 3 pessoas ou mais.
+btnSortear.addEventListener('click', ()=>{
+    formarOsAmigos();
+    console.log(pares_amigos);
+    // Limpa as variáveis para tentar um novo sorteio
+    amigosJaSorteados = [];
+    pares_amigos = [];
+})
 
 function capitalize(nome) { // Nome maiúsculo
     return nome.charAt(0).toUpperCase() + nome.slice(1);
@@ -83,7 +100,24 @@ function enterAdd(e) {
  }
 
 
-// TODO: Elaborar os sorteios;
+ // Script 
+function formarOsAmigos() { 
+    todosOsAmigos.forEach((item) => {
+        pares_amigos.push([item, sortearAmigo(item)]);
+    })
+ }
+
+
+function sortearAmigo(amigo){
+    do {
+        var numSorteado = Math.floor(Math.random() * todosOsAmigos.length);
+        var amigoSorteado = todosOsAmigos[numSorteado];
+
+    } while (todosOsAmigos[numSorteado] == amigo || amigosJaSorteados.includes(numSorteado));
+    amigosJaSorteados.push(numSorteado); // guarda o número sorteado
+    return amigoSorteado;
+    
+}
 
 /*
 var listaNomes = [] 
