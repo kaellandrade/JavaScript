@@ -4,7 +4,6 @@ let btnApagarTodos = document.querySelector('#apagar');
 let btnSortear = document.querySelector('#sortear');
 let alerta = document.querySelector('#alerta');
 let tabela = document.querySelector('#tabela-corpo');
-// let tabelaHead = document.querySelector('#tabela-cabecalho tr');
 let contagem = document.querySelector('#contagem');
 
 let todosOsAmigos = []; // array onde será armazenado todos os amigos cadastrados;
@@ -37,9 +36,11 @@ btnApagarTodos.addEventListener('click', ()=>{
 btnAdd.addEventListener('click', addAmigos);
 addEventListener('keydown', enterAdd);
 
-// TODO : Ajustar o sorteio.
+// Função que realiza o sorteio, retornar um array.
 btnSortear.addEventListener('click', () => {
+
     // Sorteia os amigos
+
     pares = [] // limpa pares caso seja feito outro sorteio
     let copiaAmigos = [...todosOsAmigos];
     copiaAmigos.sort(() => Math.random() - 0.5)
@@ -52,7 +53,10 @@ btnSortear.addEventListener('click', () => {
         }
         
     }
-    console.table(pares)
+
+    // console.table(pares)
+    pares.sort(() => Math.random() - 0.5); // embaralha os pars
+    // console.table(pares)
     ExibeOsPares();
     // return pares;
 })
@@ -62,25 +66,42 @@ function ExibeOsPares() { // TODO: Fazer alguns ajustes;
     tabela.innerHTML = '';
     for (let i = 0; i < pares.length; i++) {    
         let tRow = document.createElement('tr');  
-        let thId = document.createElement('th');
-        let thNome1 = document.createElement('th');
-        let thNome2 = document.createElement('th');
+        let divSecreto = document.createElement('div');
+        let tdId = document.createElement('td');
+        let tdNome1 = document.createElement('td');
+        let tdNome2 = document.createElement('td');
+        let tdButton = document.createElement('button');
+
+        tdButton.className = 'btn btn-view';
+        tdButton.innerHTML = '<i class="far fa-eye"></i>';
+
+
+        divSecreto.className = 'esconder';
         
+        // Mostra o amigo quando o botão for clicado
+        tdButton.addEventListener('mousedown', ()=>{
+            divSecreto.className = '';
+        })
 
+        tdButton.addEventListener('mouseup', ()=>{
+            divSecreto.className = 'esconder';
+        })
+        
         let amigo1 = pares[i][0];
-        let amigo2 = pares[i][1]
+        let amigo2 = pares[i][1];
+        tdId.innerHTML = i+1;
+        
+        
+        tdNome1.innerHTML = capitalize(amigo1);
+        divSecreto.innerHTML = capitalize(amigo2);
+        
+        tdNome2.appendChild(divSecreto);
 
-        thId.innerHTML = i+1;
-
-
-
-        thNome2.innerHTML = capitalize(amigo1);
-        thNome1.innerHTML = capitalize(amigo2);
-
-        tRow.appendChild(thId);
-        tRow.appendChild(thNome1);
-        tRow.appendChild(thNome2);
-
+        tRow.appendChild(tdId);
+        tRow.appendChild(tdNome1);
+        tRow.appendChild(tdNome2);
+        tRow.appendChild(tdButton)
+        
 
         tabela.appendChild(tRow);
     }
@@ -109,16 +130,16 @@ function addAmigos(){
         todosOsAmigos.push(valor);
         // criar os valoes para serem adcionados a tabela;
         let tr = document.createElement('tr');
-        let thId = document.createElement('th');
-        let thNome = document.createElement('th');
+        let tdId = document.createElement('td');
+        let tdNome = document.createElement('td');
         contagem.innerHTML = todosOsAmigos.length; // atualiza contagem
 
-        thId.scope = 'row';
-        thId.innerHTML = todosOsAmigos.length;
+        tdId.scope = 'row';
+        tdId.innerHTML = todosOsAmigos.length;
 
-        thNome.innerHTML = capitalize(valor);
-        tr.appendChild(thId);
-        tr.appendChild(thNome);
+        tdNome.innerHTML = capitalize(valor);
+        tr.appendChild(tdId);
+        tr.appendChild(tdNome);
         tabela.appendChild(tr);
 
         console.log(todosOsAmigos);

@@ -28,7 +28,24 @@
     color: #472b29;
     background-color: #c7ede6;
 }
+/* #tabela-corpo tr{
+    position: relative;
+} */
 
 .table tr:nth-child(2n){
     background:#c7ede6;
+}
+/* .btn-view{
+    position: absolute;
+    right: 5px;
+    top: 0;
+    bottom: 0; 
+    color: #007bff !important;
+} */
+
+.esconder{
+    background-color: gray;
+    background-image: linear-gradient(to right, rgba(233, 212, 212, 0.473), rgb(184, 179, 179));
+    color: transparent;
+    border-radius: 10px;
 }
