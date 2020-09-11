@@ -3,12 +3,12 @@ let btnAdd = document.querySelector('#add');
 let btnApagarTodos = document.querySelector('#apagar');
 let btnSortear = document.querySelector('#sortear');
 let alerta = document.querySelector('#alerta');
-let tabela = document.querySelector('#tabala-nomes');
+let tabela = document.querySelector('#tabela-corpo');
+// let tabelaHead = document.querySelector('#tabela-cabecalho tr');
 let contagem = document.querySelector('#contagem');
 
 let todosOsAmigos = []; // array onde será armazenado todos os amigos cadastrados;
-let sorteados = []; // armazena os amigos já sorteados
-let pares_amigos = []; // pares dos amigos formados
+let pares = []; // pares dos amigos formados
 
 
 
@@ -38,9 +38,55 @@ btnAdd.addEventListener('click', addAmigos);
 addEventListener('keydown', enterAdd);
 
 // TODO : Ajustar o sorteio.
-btnSortear.addEventListener('click', ()=>{
-    console.log('Sorteando...')
+btnSortear.addEventListener('click', () => {
+    // Sorteia os amigos
+    pares = [] // limpa pares caso seja feito outro sorteio
+    let copiaAmigos = [...todosOsAmigos];
+    copiaAmigos.sort(() => Math.random() - 0.5)
+    
+    for (let i = 0; i < copiaAmigos.length; i++) {
+        if(i != copiaAmigos.length - 1){
+            pares.push([copiaAmigos[i], copiaAmigos[i+1]])
+        }else{
+            pares.push([copiaAmigos[i], copiaAmigos[0]])
+        }
+        
+    }
+    console.table(pares)
+    ExibeOsPares();
+    // return pares;
 })
+
+
+function ExibeOsPares() { // TODO: Fazer alguns ajustes;
+    tabela.innerHTML = '';
+    for (let i = 0; i < pares.length; i++) {    
+        let tRow = document.createElement('tr');  
+        let thId = document.createElement('th');
+        let thNome1 = document.createElement('th');
+        let thNome2 = document.createElement('th');
+        
+
+        let amigo1 = pares[i][0];
+        let amigo2 = pares[i][1]
+
+        thId.innerHTML = i+1;
+
+
+
+        thNome2.innerHTML = capitalize(amigo1);
+        thNome1.innerHTML = capitalize(amigo2);
+
+        tRow.appendChild(thId);
+        tRow.appendChild(thNome1);
+        tRow.appendChild(thNome2);
+
+
+        tabela.appendChild(tRow);
+    }
+
+
+ }
 
 function capitalize(nome) { // Nome maiúsculo
     return nome.charAt(0).toUpperCase() + nome.slice(1);
