@@ -6,65 +6,73 @@ let alerta = document.querySelector('#alerta');
 let tabela = document.querySelector('#tabela-corpo');
 let contagem = document.querySelector('#contagem');
 
-let todosOsAmigos = []; // array onde será armazenado todos os amigos cadastrados;
-let pares = []; // pares dos amigos formados
+let todosOsAmigos = []; // array onde será armazenado todos os amigos cadastrados; ['Gandalf', 'Bilbo', 'Thorin']
+let pares = []; // Pares dos amigos formados exemplo:
+/*
+[
+    ['Gandalf', 'Bilbo'], 
+    ['Bilbo, Thorin'], 
+    ['Thorin', 'Gandalf']
+]
+*/
 
 
-
-// !Remove todos os dados da tabela e o array também
+// Limpa a tabela e remove todos os amigos cadastrados;
 btnApagarTodos.addEventListener('click', ()=>{
-    if(todosOsAmigos.length > 0){
+    if(todosOsAmigos.length > 0){ // Verifica se tem amigos para remover
        let resposta =  confirm('Apagar todos amigos cadastrados ?');
        if(resposta == true){
             // Limpa os arrays
             todosOsAmigos = [];
-            amigosJaSorteados = [];
-            pares_amigos = [];
+            pares = [];
 
             contagem.innerHTML = 0;
             tabela.innerHTML = '';
-            alerta.className = 'd-none';  //remove possiveis avisos
-            btnSortear.disabled = true; // desabilita o botão sorteio;
-            btnApagarTodos.disabled = true; // desabilita o botão apagar;
-
-        //    console.log(todosOsAmigos);
+            alerta.className = 'd-none';  // Remove possíveis avisos
+            btnSortear.disabled = true; // Desabilita o botão sorteio;
+            btnApagarTodos.disabled = true; // Desabilita o botão apagar, uma vez que ja foi apagado tudo;
        }
+    }else{
+        alerta.className = 'alert alert-primary';
+        alerta.innerHTML = 'Adicione amigos primeiro!';
     }
 });
 
 // Adiciona amigos à tabela;
-btnAdd.addEventListener('click', addAmigos);
-addEventListener('keydown', enterAdd);
+btnAdd.addEventListener('click', addAmigos); // Via click
+addEventListener('keydown', enterAdd); // Via Enter
 
 // Função que realiza o sorteio, retornar um array.
 btnSortear.addEventListener('click', () => {
+    pares = [] // limpa os pares anteriores caso seja feito outro sorteio
+    let copiaAmigos = [...todosOsAmigos]; // Faz uma copia do array principal
 
-    // Sorteia os amigos
+    copiaAmigos.sort(() => Math.random() - 0.5) // Embaralha o array;
+    /*
+    Pega o amigo seguinte, ou seja, i+1 para formar pares. 
+    O último amigo formará par com o primeiro
 
-    pares = [] // limpa pares caso seja feito outro sorteio
-    let copiaAmigos = [...todosOsAmigos];
-    copiaAmigos.sort(() => Math.random() - 0.5)
-    
+    Exemplo: ['Sherlock', 'Dracula', 'Scooby']
+    Resulta: ('Sherlock', 'Dracula'), ('Dracula', 'Scooby'), ('Scooby', 'Sherlock')
+    */
+
     for (let i = 0; i < copiaAmigos.length; i++) {
-        if(i != copiaAmigos.length - 1){
+        if(i != copiaAmigos.length - 1){ // Se fro diferente do último índice, pegue o próximo; 
             pares.push([copiaAmigos[i], copiaAmigos[i+1]])
-        }else{
+        }else{ // Caso seja o último elemento, então forme par com o primeiro;
             pares.push([copiaAmigos[i], copiaAmigos[0]])
-        }
-        
+        }        
     }
 
-    // console.table(pares)
-    pares.sort(() => Math.random() - 0.5); // embaralha os pars
-    // console.table(pares)
+    pares.sort(() => Math.random() - 0.5); // Embaralha os pares sorteados;
     ExibeOsPares();
-    // return pares;
 })
 
 
-function ExibeOsPares() { // TODO: Fazer alguns ajustes;
-    tabela.innerHTML = '';
-    for (let i = 0; i < pares.length; i++) {    
+function ExibeOsPares() {
+    tabela.innerHTML = ''; //Limpa a tabela
+    document.querySelector('#amigo_secreto').className = '';
+       for (let i = 0; i < pares.length; i++) {    
         let tRow = document.createElement('tr');  
         let divSecreto = document.createElement('div');
         let tdId = document.createElement('td');
@@ -78,14 +86,7 @@ function ExibeOsPares() { // TODO: Fazer alguns ajustes;
 
         divSecreto.className = 'esconder';
         
-        // Mostra o amigo quando o botão for clicado
-        tdButton.addEventListener('mousedown', ()=>{
-            divSecreto.className = '';
-        })
-
-        tdButton.addEventListener('mouseup', ()=>{
-            divSecreto.className = 'esconder';
-        })
+        
         
         let amigo1 = pares[i][0];
         let amigo2 = pares[i][1];
@@ -104,6 +105,15 @@ function ExibeOsPares() { // TODO: Fazer alguns ajustes;
         
 
         tabela.appendChild(tRow);
+
+        // Mostra o amigo quando o botão click for apertado
+        tdButton.addEventListener('mousedown', ()=>{
+            divSecreto.className = '';
+        })
+        // Esconde o amigo quando o botão click for solto
+        tdButton.addEventListener('mouseup', ()=>{
+            divSecreto.className = 'esconder';
+        })
     }
 
 
