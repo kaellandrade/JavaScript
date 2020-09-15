@@ -1,3 +1,7 @@
+body{
+    font-family: 'Varela Round', sans-serif;
+}
+
 .home-display{
     display: flex;
     align-items: center;
@@ -44,8 +48,32 @@
 } */
 
 .esconder{
-    background-color: gray;
     background-image: linear-gradient(to right, rgba(233, 212, 212, 0.473), rgb(184, 179, 179));
     color: transparent;
     border-radius: 10px;
+}
+.mostrar::after{
+    content: " \1F381";
+    animation: pulse 2s infinite;
+}
+
+.mostrar{
+    background-image: transparent;
+    color: #ea5167;
+    border-radius: 10px;
+}
+
+@keyframes pulse{
+    0% {
+        color: rgb(0, 0, 0);
+    }
+    
+    50% {
+        color: transparent;
+    }
+    
+    100% {
+        color: rgb(0, 0, 0);
+
+    }
 }

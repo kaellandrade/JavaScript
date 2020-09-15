@@ -34,7 +34,7 @@ btnApagarTodos.addEventListener('click', ()=>{
        }
     }else{
         alerta.className = 'alert alert-primary';
-        alerta.innerHTML = 'Adicione amigos primeiro!';
+        alerta.innerHTML = 'Adicione amigos primeiro! 🙄';
     }
 });
 
@@ -44,28 +44,33 @@ addEventListener('keydown', enterAdd); // Via Enter
 
 // Função que realiza o sorteio, retornar um array.
 btnSortear.addEventListener('click', () => {
-    pares = [] // limpa os pares anteriores caso seja feito outro sorteio
-    let copiaAmigos = [...todosOsAmigos]; // Faz uma copia do array principal
-
-    copiaAmigos.sort(() => Math.random() - 0.5) // Embaralha o array;
-    /*
-    Pega o amigo seguinte, ou seja, i+1 para formar pares. 
-    O último amigo formará par com o primeiro
-
-    Exemplo: ['Sherlock', 'Dracula', 'Scooby']
-    Resulta: ('Sherlock', 'Dracula'), ('Dracula', 'Scooby'), ('Scooby', 'Sherlock')
-    */
-
-    for (let i = 0; i < copiaAmigos.length; i++) {
-        if(i != copiaAmigos.length - 1){ // Se fro diferente do último índice, pegue o próximo; 
-            pares.push([copiaAmigos[i], copiaAmigos[i+1]])
-        }else{ // Caso seja o último elemento, então forme par com o primeiro;
-            pares.push([copiaAmigos[i], copiaAmigos[0]])
-        }        
+    if (todosOsAmigos.length >= 3){
+        pares = [] // limpa os pares anteriores caso seja feito outro sorteio
+        let copiaAmigos = [...todosOsAmigos]; // Faz uma copia do array principal
+    
+        copiaAmigos.sort(() => Math.random() - 0.5) // Embaralha o array;
+        /*
+        Pega o amigo seguinte, ou seja, i+1 para formar pares. 
+        O último amigo formará par com o primeiro
+    
+        Exemplo: ['Sherlock', 'Dracula', 'Scooby']
+        Resulta: ('Sherlock', 'Dracula'), ('Dracula', 'Scooby'), ('Scooby', 'Sherlock')
+        */
+    
+        for (let i = 0; i < copiaAmigos.length; i++) {
+            if(i != copiaAmigos.length - 1){ // Se fro diferente do último índice, pegue o próximo; 
+                pares.push([copiaAmigos[i], copiaAmigos[i+1]])
+            }else{ // Caso seja o último elemento, então forme par com o primeiro;
+                pares.push([copiaAmigos[i], copiaAmigos[0]])
+            }        
+        }
+    
+        pares.sort(() => Math.random() - 0.5); // Embaralha os pares sorteados;
+        ExibeOsPares();
+    }else{
+        alerta.className = 'alert alert-warning';
+        alerta.innerHTML = 'Precisamo no mínimo de 3 amigos para brincarmos 😝'
     }
-
-    pares.sort(() => Math.random() - 0.5); // Embaralha os pares sorteados;
-    ExibeOsPares();
 })
 
 
@@ -108,7 +113,7 @@ function ExibeOsPares() {
 
         // Mostra o amigo quando o botão click for apertado
         tdButton.addEventListener('mousedown', ()=>{
-            divSecreto.className = '';
+            divSecreto.className = 'mostrar';
         })
         // Esconde o amigo quando o botão click for solto
         tdButton.addEventListener('mouseup', ()=>{
@@ -130,11 +135,11 @@ function addAmigos(){
     inputNome.focus();
     if(todosOsAmigos.includes(valor)){ // Esse nome já está no array
         alerta.className = 'alert alert-warning';
-        alerta.innerHTML = `Ops! ${valor} já está na lista!`;
+        alerta.innerHTML = `Ops! ${valor} já está na lista! 🧐`;
 
     }else if (valor == '') { // verifica se o campo está vazio
         alerta.className = 'alert alert-danger';
-        alerta.innerHTML = 'Nome inválido!';
+        alerta.innerHTML = 'Nome inválido! 🧐';
 
     }else{
         todosOsAmigos.push(valor);
@@ -152,7 +157,7 @@ function addAmigos(){
         tr.appendChild(tdNome);
         tabela.appendChild(tr);
 
-        console.log(todosOsAmigos);
+        // console.log(todosOsAmigos);
         if(todosOsAmigos.length != 0){ // habilita botão remover
             btnApagarTodos.disabled = false;
         }
